@@ -10,6 +10,8 @@ for (let i = 1; i < 10; i++) {
             deadCounter.textContent = Number(deadCounter.textContent) + 1;
              if (Number(deadCounter.textContent) === 10) {
                  alert('u won!');
+                 deadCounter.textContent = 0;
+                 missedCounter.textContent = 0;
              }
         } else {
             missedCounter.textContent = Number(missedCounter.textContent) + 1;

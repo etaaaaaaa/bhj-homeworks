@@ -1,34 +1,28 @@
-const next = document.querySelector('.slider__arrow_next');
-const prev = document.querySelector('.slider__arrow_prev');
+const nextButton = document.querySelector('.slider__arrow_next');
+const prevButton = document.querySelector('.slider__arrow_prev');
+const itemsArray = Array.from(document.querySelectorAll('.slider__item'));
 
-next.onclick = function() {
+console.log(itemsArray);
 
-        const active = document.querySelector('.slider__item_active');
-        const newCount = document.querySelector('.slider__item');
+nextButton.onclick = function () {
+    const currentSlide = (element) => element.classList.contains('slider__item_active');
+    let activeSlideIndex = itemsArray.findIndex(currentSlide);
 
-
-        if (active.nextElementSibling === null) {
-            newCount.className = 'slider__item slider__item_active';
-            active.className = 'slider__item';
-        } else {
-            active.nextElementSibling.className = 'slider__item slider__item_active';
-            active.className = 'slider__item';
-        }
-
+    itemsArray[activeSlideIndex].classList.remove('slider__item_active');
+    (activeSlideIndex < itemsArray.length - 1) ? activeSlideIndex++ : activeSlideIndex = 0;
+    itemsArray[activeSlideIndex].classList.add('slider__item_active');
 }
 
-prev.onclick = function() {
+prevButton.onclick = function () {
+    const currentSlide = (element) => element.classList.contains('slider__item_active');
+    let activeSlideIndex = itemsArray.findIndex(currentSlide);
 
-    const active = document.querySelector('.slider__item_active');
-    const newCount = document.querySelector('.slider__items').lastElementChild;
-
-
-    if (active.previousElementSibling === null) {
-        newCount.className = 'slider__item slider__item_active';
-        active.className = 'slider__item';
-    } else {
-        active.previousElementSibling.className = 'slider__item slider__item_active';
-        active.className = 'slider__item';
-    }
-
+    itemsArray[activeSlideIndex].classList.remove('slider__item_active');
+    (activeSlideIndex <= 0) ? activeSlideIndex = itemsArray.length - 1 : activeSlideIndex--;
+    itemsArray[activeSlideIndex].classList.add('slider__item_active');
 }
+
+
+
+
+

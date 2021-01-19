@@ -6,11 +6,12 @@ const secondContainer = document.getElementById('modal_success');
 //probably not very efficient?
 for (let i = 0; i < close.length; i++) {
     close[i].onclick = function () {
-        container.className = 'modal';
-        secondContainer.className = 'modal';
+        container.classList.toggle('modal_active', false);
+        secondContainer.classList.toggle('modal_active', false);
     }
 }
 
 showSuccess.onclick = function () {
-    secondContainer.className = 'modal modal_active';
+    secondContainer.classList.toggle('modal_active', true);
+    container.classList.toggle('modal_active', false);
 }

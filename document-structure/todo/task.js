@@ -6,9 +6,7 @@ button.addEventListener('click', e => {
     e.preventDefault();
     console.log(inputField.value);
 
-    if (inputField.value === '') {
-        alert('message is empty!');
-    } else {
+    if (inputField.value.trim() !== '') {
         taskList.insertAdjacentHTML('beforeend', `
         <div class="task">
              <div class="task__title">

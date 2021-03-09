@@ -16,14 +16,11 @@ button.addEventListener('click', e => {
          </div>`)
 
         inputField.value = '';
+    }
+})
 
-        const removeButtons = document.querySelectorAll('.task__remove');
-
-        for(let removeButton of removeButtons) {
-            removeButton.addEventListener('click', e => {
-                e.preventDefault();
-                e.target.parentElement.remove();
-            })
-        }
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('task__remove')) {
+        e.target.parentElement.remove();
     }
 })

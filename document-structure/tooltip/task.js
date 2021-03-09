@@ -8,8 +8,9 @@ document.body.addEventListener('click', (event) => {
     event.preventDefault();
     tooltip.innerText = target.getAttribute('title');
     tooltip.style.left = target.getBoundingClientRect().left.toString() + 'px';
+    tooltip.style.top = (target.getBoundingClientRect().top + 20).toString() + 'px';
     tooltip.classList.toggle('tooltip_active');
-    tooltip.style.top = `${top + 20}px`;
+
     target.addEventListener('blur', () => {
         tooltip.classList.remove('tooltip_active');
     });

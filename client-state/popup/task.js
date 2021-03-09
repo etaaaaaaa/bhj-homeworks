@@ -18,14 +18,6 @@ const getCookie = (name) => {
     }
 }
 
-const status = getCookie('status');
-
-if ( status === '1' ) {
-    console.log('hello');
-} else {
+if ( getCookie('status') !== '1' ) {
     popup.classList.add('modal_active');
 }
-
-
-
-
